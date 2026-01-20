@@ -3,75 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrustID | Global Security Infrastructure</title>
+    <title>TrustID | Global Integrity Shield</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@600;800;900&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --red: #ff3b3b; --cyan: #00f2fe; --dark: #000000; --green: #00ff88; --warning: #ffae00; --gold: #ffd700; }
         
-        body { background: var(--dark); color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
+        body { background: var(--dark); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; }
 
-        /* Header & Logo */
-        header { text-align: center; padding: 60px 20px; }
-        .logo-box i { font-size: 80px; color: var(--cyan); animation: pulseGlow 2s infinite ease-in-out; }
-        @keyframes pulseGlow { 0%, 100% { filter: drop-shadow(0 0 10px var(--cyan)); opacity: 1; } 50% { filter: drop-shadow(0 0 35px var(--cyan)); opacity: 0.6; } }
+        /* Header & Logo Section */
+        header { text-align: center; padding: 70px 20px 40px; }
+        .logo-box i { font-size: 75px; color: var(--cyan); animation: pulseGlow 2.5s infinite ease-in-out; }
+        @keyframes pulseGlow { 0%, 100% { filter: drop-shadow(0 0 8px var(--cyan)); opacity: 1; } 50% { filter: drop-shadow(0 0 30px var(--cyan)); opacity: 0.7; transform: scale(1.02); } }
         
-        .brand-name { font-family: 'Lexend Deca'; font-size: 50px; margin: 0; font-weight: 900; background: linear-gradient(to right, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .say-no { color: var(--red); font-weight: 800; letter-spacing: 4px; font-size: 15px; text-transform: uppercase; margin-top: 5px; }
-        .global-net { color: #fff; font-weight: 900; font-size: 14px; letter-spacing: 2px; margin-top: 10px; display: block; }
+        .brand-name { font-family: 'Outfit'; font-size: 52px; margin: 5px 0; font-weight: 800; letter-spacing: -2px; background: linear-gradient(135deg, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .say-no { color: var(--red); font-weight: 800; letter-spacing: 5px; font-size: 14px; text-transform: uppercase; display: block; }
+        .global-net { font-family: 'Outfit'; font-weight: 500; font-size: 13px; letter-spacing: 3px; color: #555; margin-top: 8px; display: block; }
 
-        /* Sleek Search bar */
+        /* Sleek Search Infrastructure */
         .section-box { padding: 40px 20px; text-align: center; }
         .search-bar { 
-            width: 90%; max-width: 500px; padding: 22px; border-radius: 12px; 
-            border: 2px solid #222; background: #050505; color: #fff; 
-            font-size: 16px; text-align: center; transition: 0.3s;
+            width: 90%; max-width: 480px; padding: 22px; border-radius: 14px; 
+            border: 1.5px solid #1a1a1a; background: #050505; color: #fff; 
+            font-size: 16px; text-align: center; transition: 0.4s; font-family: 'Plus Jakarta Sans';
         }
-        .search-bar:focus { border-color: var(--cyan); outline: none; box-shadow: 0 0 15px rgba(0,242,254,0.1); }
+        .search-bar:focus { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0, 242, 254, 0.1); outline: none; }
         .btn-outline { 
             background: transparent; border: 2px solid var(--cyan); color: var(--cyan); 
-            padding: 15px 45px; border-radius: 10px; font-weight: 800; margin-top: 25px; 
-            cursor: pointer; font-size: 14px; transition: 0.3s;
+            padding: 16px 45px; border-radius: 12px; font-weight: 800; margin-top: 25px; 
+            cursor: pointer; font-size: 14px; transition: 0.3s; letter-spacing: 1px;
         }
-        .btn-outline:hover { background: var(--cyan); color: #000; }
+        .btn-outline:hover { background: var(--cyan); color: #000; box-shadow: 0 0 20px rgba(0,242,254,0.3); }
 
-        /* Results with Golden Blinking */
-        #result-box { margin-top: 30px; padding: 25px; border-radius: 12px; display: none; max-width: 480px; margin-inline: auto; font-weight: 800; font-size: 18px; text-transform: uppercase; }
-        .danger { border: 2px solid var(--red); color: var(--red); background: rgba(255,59,59,0.1); }
-        .verified-gold { border: 2px solid var(--gold); color: var(--gold); background: rgba(255,215,0,0.1); animation: goldBlink 1s infinite; box-shadow: 0 0 20px rgba(255,215,0,0.2); }
-        @keyframes goldBlink { 50% { opacity: 0.5; transform: scale(1.02); } }
-        .warning-blink { border: 2px solid var(--warning); color: var(--warning); animation: blinker 0.7s infinite; }
-        @keyframes blinker { 50% { opacity: 0.3; } }
+        /* Search Results Logic States */
+        #result-box { margin-top: 30px; padding: 25px; border-radius: 15px; display: none; max-width: 450px; margin-inline: auto; font-weight: 700; font-size: 17px; }
+        .danger { border: 2px solid var(--red); color: var(--red); background: rgba(255,59,59,0.08); box-shadow: 0 0 25px rgba(255,59,59,0.15); }
+        .verified-gold { border: 2px solid var(--gold); color: var(--gold); background: rgba(255,215,0,0.08); animation: goldPulse 1.2s infinite; box-shadow: 0 0 30px rgba(255,215,0,0.25); }
+        @keyframes goldPulse { 50% { opacity: 0.6; transform: translateY(-3px); } }
+        .warning-blink { border: 2.5px solid var(--warning); color: var(--warning); animation: alertBlink 0.6s infinite; }
+        @keyframes alertBlink { 50% { opacity: 0.4; } }
 
-        /* Professional Slider */
-        .slider-box { position: relative; width: 100%; height: 550px; margin-top: 50px; border-top: 4px solid var(--red); overflow: hidden; }
+        /* Premium Slider with Direct Captions */
+        .slider-box { position: relative; width: 100%; height: 500px; margin-top: 50px; border-top: 3px solid var(--red); overflow: hidden; }
         .slide { position: absolute; width: 100%; height: 100%; opacity: 0; animation: fadeEffect 15s infinite; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.3); }
+        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.35); }
         @keyframes fadeEffect { 0%, 33% { opacity: 0; } 5%, 28% { opacity: 1; } }
         .slide:nth-child(1) { animation-delay: 0s; } .slide:nth-child(2) { animation-delay: 5s; } .slide:nth-child(3) { animation-delay: 10s; }
-        .caption { position: absolute; bottom: 60px; width: 100%; text-align: center; padding: 0 20px; box-sizing: border-box; }
-        .caption h2 { font-family: 'Lexend Deca'; color: var(--red); font-size: 30px; font-weight: 900; text-transform: uppercase; }
-        .caption p { font-size: 18px; color: #fff; font-weight: 700; margin-top: 10px; }
-
-        /* Landing Page Kwalliya */
-        .cta-area { padding: 80px 25px; text-align: center; border-top: 1px solid #111; }
-        .command-text { font-family: 'Lexend Deca'; font-size: 32px; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 20px; }
-        .mission-text { font-size: 16px; color: #aaa; max-width: 600px; margin: 0 auto 40px; line-height: 1.6; font-weight: 500; }
-        .mission-text b { color: var(--cyan); }
-
-        .btn-waitlist { background: var(--green); color: #000; padding: 22px 60px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 20px; box-shadow: 0 0 30px rgba(0,255,136,0.3); display: inline-block; }
         
-        .report-section { margin-top: 60px; }
-        .report-prompt { font-size: 18px; color: var(--warning); display: block; margin-bottom: 20px; font-weight: 700; text-transform: uppercase; }
-        .btn-report-outline { background: transparent; border: 2px solid var(--red); color: var(--red); padding: 18px 45px; border-radius: 12px; font-weight: 800; cursor: pointer; }
+        .caption { position: absolute; bottom: 50px; width: 100%; text-align: center; padding: 0 30px; box-sizing: border-box; }
+        .caption-text { 
+            font-family: 'Outfit'; font-size: 19px; color: #fff; font-weight: 500; 
+            line-height: 1.5; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            max-width: 450px; margin: 0 auto; display: block;
+        }
+        .caption-text b { color: var(--red); font-weight: 800; }
 
-        footer { padding: 60px; text-align: center; font-size: 12px; color: #333; letter-spacing: 3px; }
+        /* Global Standards Landing Content */
+        .cta-area { padding: 90px 25px; text-align: center; background: radial-gradient(circle at center, #0a0a0a, #000); }
+        .command-text { font-family: 'Outfit'; font-size: 28px; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 25px; letter-spacing: -0.5px; }
+        .mission-text { font-size: 15px; color: #777; max-width: 550px; margin: 0 auto 50px; line-height: 1.8; font-weight: 400; }
+        .mission-text b { color: var(--cyan); font-weight: 700; }
 
-        /* Modal Elite Form */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); backdrop-filter: blur(20px); }
-        .modal-content { background: #080808; margin: 5% auto; padding: 30px; border: 1px solid #222; width: 90%; max-width: 450px; border-radius: 20px; }
-        .modal-content input, .modal-content textarea { width: 100%; padding: 15px; margin: 10px 0; background: #000; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; }
-        .label-compulsory { font-size: 12px; color: var(--red); font-weight: bold; }
+        .btn-waitlist { background: var(--green); color: #000; padding: 22px 65px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 18px; box-shadow: 0 10px 30px rgba(0,255,136,0.25); transition: 0.4s; display: inline-block; }
+        .btn-waitlist:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(0,255,136,0.4); }
+
+        .report-section { margin-top: 70px; }
+        .report-prompt { font-size: 16px; color: var(--warning); display: block; margin-bottom: 22px; font-weight: 700; letter-spacing: 1px; }
+        .btn-report-outline { background: transparent; border: 2px solid var(--red); color: var(--red); padding: 18px 45px; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 13px; }
+
+        footer { padding: 60px; text-align: center; font-size: 10px; color: #222; letter-spacing: 4px; }
+
+        /* Elite Modal Structure */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); backdrop-filter: blur(25px); }
+        .modal-content { background: #080808; margin: 8% auto; padding: 35px; border: 1px solid #1a1a1a; width: 88%; max-width: 440px; border-radius: 24px; box-shadow: 0 0 50px rgba(0,0,0,1); }
+        .modal-content input, .modal-content textarea { width: 100%; padding: 16px; margin: 10px 0; background: #000; border: 1px solid #222; color: #fff; border-radius: 10px; font-family: 'Plus Jakarta Sans'; box-sizing: border-box; font-size: 14px; }
+        .file-label { font-size: 11px; color: var(--red); font-weight: 800; letter-spacing: 1px; display: block; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -79,30 +85,39 @@
 <header>
     <div class="logo-box"><i class="fas fa-shield-halved"></i></div>
     <h1 class="brand-name">TrustID</h1>
-    <div class="say-no">ZERO TOLERANCE FOR SCAMS</div>
-    <b class="global-net">GLOBAL VERIFICATION NETWORK</b>
+    <span class="say-no">STOP ONLINE THEFT</span>
+    <span class="global-net">GLOBAL VERIFICATION INFRASTRUCTURE</span>
 </header>
 
 <div class="section-box">
-    <input type="text" id="searchInput" class="search-bar" placeholder="Name, Account No, IG, or WhatsApp">
+    <input type="text" id="searchInput" class="search-bar" placeholder="Analyze Account, IG, or WhatsApp Group">
     <br>
     <button class="btn-outline" onclick="checkScammer()">VERIFY IDENTITY</button>
     <div id="result-box"></div>
 </div>
 
 <div class="slider-box">
-    <div class="slide"><img src="https://i.postimg.cc/w1rkcMbG/IMG-20260119-WA0093.jpg"><div class="caption"><h2>THEY TOOK EVERYTHING</h2><p>I worked for months, they stole it in seconds.</p></div></div>
-    <div class="slide"><img src="https://i.postimg.cc/bZ4QSMs2/IMG-20260119-WA0091.jpg"><div class="caption"><h2>NO PRODUCT, NO REFUND</h2><p>₦159,000 lost. Don't let this be your story.</p></div></div>
-    <div class="slide"><img src="https://i.postimg.cc/WdxMqKhZ/IMG-20260119-WA0096(1).jpg"><div class="caption"><h2>SILENT TEARS</h2><p>Trust turned into a nightmare. We are here to stop it.</p></div></div>
+    <div class="slide">
+        <img src="https://i.postimg.cc/w1rkcMbG/IMG-20260119-WA0093.jpg">
+        <div class="caption"><span class="caption-text">"Na yi watanni ina tarawa, amma <b>sun kwashe duka</b> a cikin sakanni kalilan ba tare da tausayi ba."</span></div>
+    </div>
+    <div class="slide">
+        <img src="https://i.postimg.cc/bZ4QSMs2/IMG-20260119-WA0091.jpg">
+        <div class="caption"><span class="caption-text">"Kudin da zan biya hayar gida ne aka tafi da su. <b>₦159,000 sun tafi</b>, babu kaya babu kudi."</span></div>
+    </div>
+    <div class="slide">
+        <img src="https://i.postimg.cc/WdxMqKhZ/IMG-20260119-WA0096(1).jpg">
+        <div class="caption"><span class="caption-text">"Ya Ubangiji Ka bi min hakki na. Na amince musu ne don naga <b>kamar gaskiya ne</b>, ashe mugaye ne."</span></div>
+    </div>
 </div>
 
 <div class="cta-area">
     <span class="command-text">DON'T JUST SEND MONEY. <br> SECURE THE TRANSACTION.</span>
     <p class="mission-text">
-        Global <b>TrustID</b> is an elite decentralized infrastructure built to eliminate digital fraud. Our aim is to provide <b>absolute transparency</b> in commerce, ensuring every vendor is verified and every consumer is protected by a global shield of integrity.
+        <b>Global TrustID</b> is an elite security infrastructure designed to create a world where every online vendor is known and every transaction is safe. We are the <b>ultimate shield</b> between you and digital fraud.
     </p>
     
-    <a href="#" class="btn-waitlist">JOIN THE WAITLIST</a>
+    <a href="#" class="btn-waitlist">Join the Waitlist</a>
 
     <div class="report-section">
         <span class="report-prompt">Have you been scammed or ever been scammed?</span>
@@ -112,24 +127,25 @@
 
 <div id="reportModal" class="modal">
     <div class="modal-content">
-        <h2 style="color:var(--red); font-family:'Lexend Deca';">Elite Report Form</h2>
+        <h2 style="color:var(--red); font-family:'Outfit'; font-weight: 800; letter-spacing: -1px;">Elite Report Portal</h2>
         <form onsubmit="handleSubmit(event)">
-            <input type="text" placeholder="Scammer Name / IG / WhatsApp Group" required>
-            <input type="text" placeholder="Scammer Account Number & Bank" required>
-            <textarea rows="3" placeholder="Explain the scam..." required></textarea>
+            <input type="text" placeholder="Scammer Name / Instagram / WhatsApp" required>
+            <input type="text" placeholder="Account Number & Bank Name" required>
+            <textarea rows="3" placeholder="Describe the incident in detail..." required></textarea>
             
-            <label class="label-compulsory">UPLOAD EVIDENCE (SCREENSHOTS) *</label>
-            <input type="file" accept="image/*" required style="border:1px dashed var(--red); padding:10px;">
+            <label class="file-label">COMPULSORY EVIDENCE (SCREENSHOTS) *</label>
+            <input type="file" accept="image/*" required style="border: 1px dashed var(--red); padding: 12px;">
             
-            <button type="submit" class="btn-outline" style="border-color:var(--red); color:var(--red); width:100%;">SUBMIT COMPULSORY REPORT</button>
-            <button type="button" onclick="closeReport()" style="background:none; border:none; color:#444; margin-top:15px; cursor:pointer; width:100%;">Dismiss</button>
+            <button type="submit" class="btn-outline" style="border-color:var(--red); color:var(--red); width:100%; margin-top: 15px;">SUBMIT COMPULSORY REPORT</button>
+            <button type="button" onclick="closeReport()" style="background:none; border:none; color:#444; margin-top:20px; cursor:pointer; width:100%; font-size: 12px; font-weight: 800;">DISMISS</button>
         </form>
     </div>
 </div>
 
-<footer>&copy; 2026 GLOBAL TRUSTID INFRASTRUCTURE. ALL RIGHTS RESERVED.</footer>
+<footer>&copy; 2026 GLOBAL TRUSTID INFRASTRUCTURE. ELITE PROTECTION.</footer>
 
 <script>
+    // Database tare da Exact Match Logic
     const scammers = ["0123456789", "@FAKE_VENDOR", "WHATSAPP_LINK_SCAM"];
     const verified = ["9876543210", "AMANA STORES", "TRUSTID_OFFICIAL"];
 
@@ -139,22 +155,27 @@
         if(!input) return;
         res.style.display = "block"; res.className = "";
         
-        if(scammers.some(s => input.includes(s) || s.includes(input))) {
+        // Duba idan sunan ya dace dari-bisa-dari (Strict Check)
+        const isScammer = scammers.includes(input);
+        const isVerified = verified.includes(input);
+
+        if(isScammer) {
             res.classList.add("danger");
-            res.innerHTML = "🚫 SCAMMER DETECTED! HIGH RISK.";
-        } else if(verified.some(v => input.includes(v) || v.includes(input))) {
+            res.innerHTML = "🚫 SCAMMER DETECTED! DO NOT PROCEED.";
+        } else if(isVerified) {
             res.classList.add("verified-gold");
-            res.innerHTML = "⭐ VERIFIED GOLD TRUSTID VENDOR ⭐";
+            res.innerHTML = "⭐ VERIFIED ELITE TRUSTID VENDOR ⭐";
         } else {
             res.classList.add("warning-blink");
-            res.innerHTML = "⚠️ NOT FOUND! DEAL WITH EXTREME CAUTION.";
+            res.innerHTML = "⚠️ NOT FOUND! STAY EXTREMELY CAUTIOUS.";
         }
     }
+
     function openReport() { document.getElementById('reportModal').style.display = "block"; }
     function closeReport() { document.getElementById('reportModal').style.display = "none"; }
     function handleSubmit(e) { 
         e.preventDefault(); 
-        alert("Evidence received. Our security team will analyze the screenshots and blacklist the vendor if found guilty.");
+        alert("Report Received. Our security team will review the evidence and blacklist this vendor if confirmed.");
         closeReport();
     }
 </script>
