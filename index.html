@@ -3,81 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrustID | Global Integrity Shield</title>
+    <title>TrustID | Global Verification Infrastructure</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --red: #ff3b3b; --cyan: #00f2fe; --dark: #000000; --green: #00ff88; --warning: #ffae00; --gold: #ffd700; }
+        :root { 
+            --red: #ff3b3b; --cyan: #00f2fe; --dark: #000; --green: #00ff88; --gold: #ffd700;
+            --platinum: #e5e4e2; --diamond: #b9f2ff;
+        }
         
         body { background: var(--dark); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; }
 
-        /* Header & Logo Section */
-        header { text-align: center; padding: 70px 20px 40px; }
-        .logo-box i { font-size: 75px; color: var(--cyan); animation: pulseGlow 2.5s infinite ease-in-out; }
-        @keyframes pulseGlow { 0%, 100% { filter: drop-shadow(0 0 8px var(--cyan)); opacity: 1; } 50% { filter: drop-shadow(0 0 30px var(--cyan)); opacity: 0.7; transform: scale(1.02); } }
+        /* Header Infrastructure */
+        header { text-align: center; padding: 80px 20px 40px; }
+        .logo-box i { font-size: 85px; color: var(--cyan); animation: pulseGlow 2.5s infinite ease-in-out; }
+        @keyframes pulseGlow { 0%, 100% { filter: drop-shadow(0 0 10px var(--cyan)); } 50% { filter: drop-shadow(0 0 35px var(--cyan)); transform: scale(1.05); } }
         
-        .brand-name { font-family: 'Outfit'; font-size: 52px; margin: 5px 0; font-weight: 800; letter-spacing: -2px; background: linear-gradient(135deg, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .say-no { color: var(--red); font-weight: 800; letter-spacing: 5px; font-size: 14px; text-transform: uppercase; display: block; }
-        .global-net { font-family: 'Outfit'; font-weight: 500; font-size: 13px; letter-spacing: 3px; color: #555; margin-top: 8px; display: block; }
+        .brand-name { font-family: 'Outfit'; font-size: 55px; margin: 5px 0; font-weight: 900; background: linear-gradient(135deg, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .say-no { color: var(--red); font-weight: 900; letter-spacing: 6px; font-size: 15px; text-transform: uppercase; display: block; }
+        
+        /* The Most Expensive Color Combination: Diamond & Platinum Pulse */
+        .global-net { 
+            font-family: 'Outfit'; font-weight: 900; font-size: 16px; letter-spacing: 3px; 
+            margin-top: 15px; display: block;
+            background: linear-gradient(90deg, #e5e4e2, #b9f2ff, #ffffff, #e5e4e2);
+            background-size: 200% auto;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: diamondBlink 3s linear infinite;
+        }
+        @keyframes diamondBlink {
+            0% { background-position: 0% center; opacity: 1; }
+            50% { background-position: 100% center; opacity: 0.4; }
+            100% { background-position: 0% center; opacity: 1; }
+        }
 
-        /* Sleek Search Infrastructure */
-        .section-box { padding: 40px 20px; text-align: center; }
+        /* Search Infrastructure */
+        .section-box { padding: 50px 20px; text-align: center; }
         .search-bar { 
-            width: 90%; max-width: 480px; padding: 22px; border-radius: 14px; 
-            border: 1.5px solid #1a1a1a; background: #050505; color: #fff; 
-            font-size: 16px; text-align: center; transition: 0.4s; font-family: 'Plus Jakarta Sans';
+            width: 92%; max-width: 500px; padding: 24px; border-radius: 16px; 
+            border: 2px solid #1a1a1a; background: #050505; color: #fff; 
+            font-size: 16px; text-align: center; transition: 0.4s;
         }
-        .search-bar:focus { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0, 242, 254, 0.1); outline: none; }
-        .btn-outline { 
+        .search-bar:focus { border-color: var(--cyan); box-shadow: 0 0 25px rgba(0, 242, 254, 0.15); outline: none; }
+        
+        .btn-verify { 
             background: transparent; border: 2px solid var(--cyan); color: var(--cyan); 
-            padding: 16px 45px; border-radius: 12px; font-weight: 800; margin-top: 25px; 
-            cursor: pointer; font-size: 14px; transition: 0.3s; letter-spacing: 1px;
+            padding: 18px 50px; border-radius: 12px; font-weight: 800; margin-top: 30px; 
+            cursor: pointer; font-size: 14px; text-transform: uppercase; letter-spacing: 2px;
         }
-        .btn-outline:hover { background: var(--cyan); color: #000; box-shadow: 0 0 20px rgba(0,242,254,0.3); }
+        .btn-verify:hover { background: var(--cyan); color: #000; box-shadow: 0 0 30px rgba(0,242,254,0.4); }
 
-        /* Search Results Logic States */
-        #result-box { margin-top: 30px; padding: 25px; border-radius: 15px; display: none; max-width: 450px; margin-inline: auto; font-weight: 700; font-size: 17px; }
-        .danger { border: 2px solid var(--red); color: var(--red); background: rgba(255,59,59,0.08); box-shadow: 0 0 25px rgba(255,59,59,0.15); }
-        .verified-gold { border: 2px solid var(--gold); color: var(--gold); background: rgba(255,215,0,0.08); animation: goldPulse 1.2s infinite; box-shadow: 0 0 30px rgba(255,215,0,0.25); }
-        @keyframes goldPulse { 50% { opacity: 0.6; transform: translateY(-3px); } }
-        .warning-blink { border: 2.5px solid var(--warning); color: var(--warning); animation: alertBlink 0.6s infinite; }
-        @keyframes alertBlink { 50% { opacity: 0.4; } }
+        /* Dynamic Results */
+        #result-box { margin-top: 35px; padding: 25px; border-radius: 15px; display: none; max-width: 480px; margin-inline: auto; font-weight: 800; font-size: 18px; }
+        .verified-gold { border: 2px solid var(--gold); color: var(--gold); background: rgba(255,215,0,0.1); animation: goldBreathe 1.5s infinite; }
+        @keyframes goldBreathe { 50% { transform: scale(1.03); opacity: 0.7; } }
+        .danger { border: 2px solid var(--red); color: var(--red); background: rgba(255,59,59,0.1); box-shadow: 0 0 20px rgba(255,59,59,0.2); }
 
-        /* Premium Slider with Direct Captions */
-        .slider-box { position: relative; width: 100%; height: 500px; margin-top: 50px; border-top: 3px solid var(--red); overflow: hidden; }
+        /* Elite Slider with English Emotional Captions */
+        .slider-box { position: relative; width: 100%; height: 550px; margin-top: 60px; border-top: 4px solid var(--red); overflow: hidden; }
         .slide { position: absolute; width: 100%; height: 100%; opacity: 0; animation: fadeEffect 15s infinite; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.35); }
+        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.3); }
         @keyframes fadeEffect { 0%, 33% { opacity: 0; } 5%, 28% { opacity: 1; } }
         .slide:nth-child(1) { animation-delay: 0s; } .slide:nth-child(2) { animation-delay: 5s; } .slide:nth-child(3) { animation-delay: 10s; }
         
-        .caption { position: absolute; bottom: 50px; width: 100%; text-align: center; padding: 0 30px; box-sizing: border-box; }
+        .caption { position: absolute; bottom: 70px; width: 100%; text-align: center; padding: 0 40px; box-sizing: border-box; }
         .caption-text { 
-            font-family: 'Outfit'; font-size: 19px; color: #fff; font-weight: 500; 
-            line-height: 1.5; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-            max-width: 450px; margin: 0 auto; display: block;
+            font-family: 'Outfit'; font-size: 20px; color: #fff; font-weight: 600; 
+            line-height: 1.5; text-shadow: 0 4px 15px rgba(0,0,0,1);
+            max-width: 500px; margin: 0 auto; display: block;
         }
-        .caption-text b { color: var(--red); font-weight: 800; }
+        .caption-text span { color: var(--red); font-weight: 900; }
 
-        /* Global Standards Landing Content */
-        .cta-area { padding: 90px 25px; text-align: center; background: radial-gradient(circle at center, #0a0a0a, #000); }
-        .command-text { font-family: 'Outfit'; font-size: 28px; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 25px; letter-spacing: -0.5px; }
-        .mission-text { font-size: 15px; color: #777; max-width: 550px; margin: 0 auto 50px; line-height: 1.8; font-weight: 400; }
-        .mission-text b { color: var(--cyan); font-weight: 700; }
+        /* Landing Content */
+        .cta-area { padding: 100px 25px; text-align: center; background: #000; }
+        .command-text { font-family: 'Outfit'; font-size: 32px; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 25px; }
+        .mission-text { font-size: 16px; color: #888; max-width: 600px; margin: 0 auto 50px; line-height: 1.8; }
+        .mission-text b { color: var(--cyan); }
 
-        .btn-waitlist { background: var(--green); color: #000; padding: 22px 65px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 18px; box-shadow: 0 10px 30px rgba(0,255,136,0.25); transition: 0.4s; display: inline-block; }
-        .btn-waitlist:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(0,255,136,0.4); }
+        .btn-waitlist { background: var(--green); color: #000; padding: 22px 70px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 20px; box-shadow: 0 10px 40px rgba(0,255,136,0.3); display: inline-block; }
+        
+        .report-section { margin-top: 80px; }
+        .report-prompt { font-size: 17px; color: var(--warning); display: block; margin-bottom: 25px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+        .btn-report-elite { background: transparent; border: 2px solid var(--red); color: var(--red); padding: 18px 50px; border-radius: 12px; font-weight: 900; cursor: pointer; text-transform: uppercase; font-size: 14px; }
 
-        .report-section { margin-top: 70px; }
-        .report-prompt { font-size: 16px; color: var(--warning); display: block; margin-bottom: 22px; font-weight: 700; letter-spacing: 1px; }
-        .btn-report-outline { background: transparent; border: 2px solid var(--red); color: var(--red); padding: 18px 45px; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 13px; }
+        footer { padding: 60px; text-align: center; font-size: 11px; color: #222; letter-spacing: 5px; font-weight: 800; }
 
-        footer { padding: 60px; text-align: center; font-size: 10px; color: #222; letter-spacing: 4px; }
-
-        /* Elite Modal Structure */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); backdrop-filter: blur(25px); }
-        .modal-content { background: #080808; margin: 8% auto; padding: 35px; border: 1px solid #1a1a1a; width: 88%; max-width: 440px; border-radius: 24px; box-shadow: 0 0 50px rgba(0,0,0,1); }
-        .modal-content input, .modal-content textarea { width: 100%; padding: 16px; margin: 10px 0; background: #000; border: 1px solid #222; color: #fff; border-radius: 10px; font-family: 'Plus Jakarta Sans'; box-sizing: border-box; font-size: 14px; }
-        .file-label { font-size: 11px; color: var(--red); font-weight: 800; letter-spacing: 1px; display: block; margin-top: 10px; }
+        /* Modal Portal */
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.99); backdrop-filter: blur(30px); }
+        .modal-content { background: #080808; margin: 6% auto; padding: 40px; border: 1px solid #1a1a1a; width: 90%; max-width: 450px; border-radius: 25px; }
+        .modal-content input, .modal-content textarea { width: 100%; padding: 18px; margin: 12px 0; background: #000; border: 1px solid #222; color: #fff; border-radius: 12px; font-family: 'Plus Jakarta Sans'; box-sizing: border-box; }
+        .file-box { border: 2px dashed var(--red); padding: 20px; margin-top: 10px; text-align: center; border-radius: 12px; }
     </style>
 </head>
 <body>
@@ -85,67 +100,68 @@
 <header>
     <div class="logo-box"><i class="fas fa-shield-halved"></i></div>
     <h1 class="brand-name">TrustID</h1>
-    <span class="say-no">STOP ONLINE THEFT</span>
-    <span class="global-net">GLOBAL VERIFICATION INFRASTRUCTURE</span>
+    <span class="say-no">ZERO TOLERANCE POLICY</span>
+    <b class="global-net">GLOBAL VERIFICATION INFRASTRUCTURE</b>
 </header>
 
 <div class="section-box">
-    <input type="text" id="searchInput" class="search-bar" placeholder="Analyze Account, IG, or WhatsApp Group">
+    <input type="text" id="searchInput" class="search-bar" placeholder="Enter Full Name, Account No, or Social Handle">
     <br>
-    <button class="btn-outline" onclick="checkScammer()">VERIFY IDENTITY</button>
+    <button class="btn-verify" onclick="checkScammer()">Verify Identity</button>
     <div id="result-box"></div>
 </div>
 
 <div class="slider-box">
     <div class="slide">
         <img src="https://i.postimg.cc/w1rkcMbG/IMG-20260119-WA0093.jpg">
-        <div class="caption"><span class="caption-text">"Na yi watanni ina tarawa, amma <b>sun kwashe duka</b> a cikin sakanni kalilan ba tare da tausayi ba."</span></div>
+        <div class="caption"><span class="caption-text">"I saved for months to start a small business, but <span>they stole everything</span> in seconds without mercy."</span></div>
     </div>
     <div class="slide">
         <img src="https://i.postimg.cc/bZ4QSMs2/IMG-20260119-WA0091.jpg">
-        <div class="caption"><span class="caption-text">"Kudin da zan biya hayar gida ne aka tafi da su. <b>₦159,000 sun tafi</b>, babu kaya babu kudi."</span></div>
+        <div class="caption"><span class="caption-text">"That was my house rent money. <span>₦159,000 is gone</span>. No product received, and now I am blocked."</span></div>
     </div>
     <div class="slide">
         <img src="https://i.postimg.cc/WdxMqKhZ/IMG-20260119-WA0096(1).jpg">
-        <div class="caption"><span class="caption-text">"Ya Ubangiji Ka bi min hakki na. Na amince musu ne don naga <b>kamar gaskiya ne</b>, ashe mugaye ne."</span></div>
+        <div class="caption"><span class="caption-text">"I trusted the profile because it looked real. <span>May God judge them</span> for the pain they've caused me."</span></div>
     </div>
 </div>
 
 <div class="cta-area">
     <span class="command-text">DON'T JUST SEND MONEY. <br> SECURE THE TRANSACTION.</span>
     <p class="mission-text">
-        <b>Global TrustID</b> is an elite security infrastructure designed to create a world where every online vendor is known and every transaction is safe. We are the <b>ultimate shield</b> between you and digital fraud.
+        <b>Global TrustID</b> is an elite decentralized authority built to restore integrity to digital trade. Our mission is to <b>blacklist fraud</b> and provide a verified sanctuary for legitimate commerce worldwide.
     </p>
     
-    <a href="#" class="btn-waitlist">Join the Waitlist</a>
+    <a href="#" class="btn-waitlist">JOIN THE WAITLIST</a>
 
     <div class="report-section">
         <span class="report-prompt">Have you been scammed or ever been scammed?</span>
-        <button class="btn-report-outline" onclick="openReport()">REPORT SCAMMER HERE</button>
+        <button class="btn-report-elite" onclick="openReport()">REPORT SCAMMER HERE</button>
     </div>
 </div>
 
 <div id="reportModal" class="modal">
     <div class="modal-content">
-        <h2 style="color:var(--red); font-family:'Outfit'; font-weight: 800; letter-spacing: -1px;">Elite Report Portal</h2>
+        <h2 style="color:var(--red); font-family:'Outfit'; font-weight: 900; letter-spacing: -1px;">Elite Report Portal</h2>
         <form onsubmit="handleSubmit(event)">
-            <input type="text" placeholder="Scammer Name / Instagram / WhatsApp" required>
-            <input type="text" placeholder="Account Number & Bank Name" required>
-            <textarea rows="3" placeholder="Describe the incident in detail..." required></textarea>
+            <input type="text" placeholder="Scammer Business Name / Social Handle" required>
+            <input type="text" placeholder="Bank Account Details Used" required>
+            <textarea rows="4" placeholder="Describe the scam incident..." required></textarea>
             
-            <label class="file-label">COMPULSORY EVIDENCE (SCREENSHOTS) *</label>
-            <input type="file" accept="image/*" required style="border: 1px dashed var(--red); padding: 12px;">
+            <div class="file-box">
+                <label style="color:var(--red); font-weight: 900; font-size: 11px;">UPLOAD COMPULSORY EVIDENCE *</label><br>
+                <input type="file" accept="image/*" required style="margin-top:10px; font-size:12px;">
+            </div>
             
-            <button type="submit" class="btn-outline" style="border-color:var(--red); color:var(--red); width:100%; margin-top: 15px;">SUBMIT COMPULSORY REPORT</button>
-            <button type="button" onclick="closeReport()" style="background:none; border:none; color:#444; margin-top:20px; cursor:pointer; width:100%; font-size: 12px; font-weight: 800;">DISMISS</button>
+            <button type="submit" class="btn-verify" style="border-color:var(--red); color:var(--red); width:100%; margin-top: 25px;">SUBMIT EVIDENCE</button>
+            <button type="button" onclick="closeReport()" style="background:none; border:none; color:#444; margin-top:20px; cursor:pointer; width:100%; font-weight: 900; font-size: 12px;">DISMISS</button>
         </form>
     </div>
 </div>
 
-<footer>&copy; 2026 GLOBAL TRUSTID INFRASTRUCTURE. ELITE PROTECTION.</footer>
+<footer>&copy; 2026 GLOBAL TRUSTID INFRASTRUCTURE. ELITE PROTECTION SERVICES.</footer>
 
 <script>
-    // Database tare da Exact Match Logic
     const scammers = ["0123456789", "@FAKE_VENDOR", "WHATSAPP_LINK_SCAM"];
     const verified = ["9876543210", "AMANA STORES", "TRUSTID_OFFICIAL"];
 
@@ -155,19 +171,15 @@
         if(!input) return;
         res.style.display = "block"; res.className = "";
         
-        // Duba idan sunan ya dace dari-bisa-dari (Strict Check)
-        const isScammer = scammers.includes(input);
-        const isVerified = verified.includes(input);
-
-        if(isScammer) {
+        if(scammers.includes(input)) {
             res.classList.add("danger");
-            res.innerHTML = "🚫 SCAMMER DETECTED! DO NOT PROCEED.";
-        } else if(isVerified) {
+            res.innerHTML = "🚫 SCAMMER DETECTED! HIGH RISK ALERT.";
+        } else if(verified.includes(input)) {
             res.classList.add("verified-gold");
-            res.innerHTML = "⭐ VERIFIED ELITE TRUSTID VENDOR ⭐";
+            res.innerHTML = "⭐ ELITE VERIFIED TRUSTID VENDOR ⭐";
         } else {
             res.classList.add("warning-blink");
-            res.innerHTML = "⚠️ NOT FOUND! STAY EXTREMELY CAUTIOUS.";
+            res.innerHTML = "⚠️ DATA NOT FOUND! PROCEED WITH CAUTION.";
         }
     }
 
@@ -175,10 +187,11 @@
     function closeReport() { document.getElementById('reportModal').style.display = "none"; }
     function handleSubmit(e) { 
         e.preventDefault(); 
-        alert("Report Received. Our security team will review the evidence and blacklist this vendor if confirmed.");
+        alert("Case Registered. Our security intelligence team will analyze the screenshots provided.");
         closeReport();
     }
 </script>
 
 </body>
-</html>
+                                                                                        </html>
+                                                                                        
