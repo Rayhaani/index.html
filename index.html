@@ -13,7 +13,7 @@
         
         body { background: var(--dark); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; }
 
-        /* Navigation Layout Fix */
+        /* Navigation */
         nav { display: flex; justify-content: center; align-items: center; gap: 12px; padding: 25px 15px; background: rgba(0,0,0,0.95); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
         .nav-btn { 
             background: transparent; border: 1.5px solid var(--cyan); color: var(--cyan); 
@@ -21,8 +21,6 @@
             text-decoration: none; text-transform: uppercase; animation: blinkCyan 2s infinite;
         }
         @keyframes blinkCyan { 0%, 100% { box-shadow: 0 0 5px var(--cyan); } 50% { box-shadow: 0 0 15px var(--cyan); } }
-
-        /* Menu Icon Positioning Fix */
         .menu-icon { margin-left: 10px; color: #fff; font-size: 22px; cursor: pointer; }
 
         /* Sidebar */
@@ -34,12 +32,10 @@
         header { text-align: center; padding: 40px 20px; }
         .logo-shield { font-size: 75px; color: var(--cyan); animation: pulseShield 2s infinite; display: block; margin: 0 auto; }
         @keyframes pulseShield { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--cyan)); } 50% { transform: scale(1.08); filter: drop-shadow(0 0 25px var(--cyan)); } }
-        
-        /* New Font for TrustID */
         .brand-name { font-family: 'Outfit'; font-size: 52px; font-weight: 900; letter-spacing: -1px; background: linear-gradient(to right, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 10px 0; }
         .slogan { color: var(--red); font-weight: 800; letter-spacing: 1px; font-size: 13px; text-transform: uppercase; }
 
-        /* Search & Result Box Fix */
+        /* Search & Result Box */
         .search-area { text-align: center; padding: 20px; }
         .search-input { width: 85%; max-width: 380px; padding: 18px; border-radius: 50px; border: 1px solid #222; background: #050505; color: #fff; text-align: center; font-size: 14px; }
         #result-box { margin: 15px auto; padding: 10px; border-radius: 8px; width: 85%; max-width: 320px; display: none; font-weight: 800; font-family: 'Outfit'; font-size: 13px; text-align: center; }
@@ -53,16 +49,19 @@
         @keyframes blinkRed { 0%, 100% { box-shadow: 0 0 10px #d00000; } 50% { box-shadow: 0 0 30px #ff0000; } }
 
         /* Why TrustID Enlarged */
-        .why-btn { font-size: 18px !important; padding: 15px 40px !important; margin-top: 20px; }
+        .why-btn { 
+            background: transparent; border: 2.5px solid var(--gold); color: var(--gold);
+            font-size: 18px; padding: 15px 40px; border-radius: 50px; font-weight: 900;
+            text-transform: uppercase; animation: blinkGold 2s infinite; cursor: pointer;
+        }
+        @keyframes blinkGold { 0%, 100% { box-shadow: 0 0 5px var(--gold); } 50% { box-shadow: 0 0 20px var(--gold); } }
 
-        /* Slider */
-        .slider { width: 100%; height: 350px; position: relative; overflow: hidden; border-top: 3px solid var(--red); margin-top: 30px; }
-        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; animation: fade 12s infinite; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.3); }
-        @keyframes fade { 0%, 33% { opacity: 0; } 5%, 28% { opacity: 1; } }
-        .slide:nth-child(2) { animation-delay: 4s; } .slide:nth-child(3) { animation-delay: 8s; }
+        /* Features Section */
+        .features { padding: 40px 20px; display: grid; gap: 20px; }
+        .f-card { background: #0a0a0a; padding: 30px; border-radius: 20px; border: 1px solid #1a1a1a; text-align: center; }
+        .f-card i { font-size: 40px; color: var(--cyan); margin-bottom: 15px; }
 
-        /* Modal */
+        /* Modals */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 5000; padding: 20px; box-sizing: border-box; overflow-y: auto; align-items: center; }
         .modal-content { background: #080808; padding: 30px; border-radius: 20px; max-width: 450px; margin: auto; border: 1px solid #333; }
         input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; background: #000; border: 1px solid #222; color: #fff; border-radius: 10px; box-sizing: border-box; }
@@ -100,44 +99,56 @@
     <div id="result-box"></div>
 </div>
 
-<div class="slider">
-    <div class="slide"><img src="https://i.postimg.cc/w1rkcMbG/IMG-20260119-WA0093.jpg"></div>
-    <div class="slide"><img src="https://i.postimg.cc/bZ4QSMs2/IMG-20260119-WA0091.jpg"></div>
-    <div class="slide"><img src="https://i.postimg.cc/WdxMqKhZ/IMG-20260119-WA0096(1).jpg"></div>
-</div>
-
 <div style="text-align:center; padding:60px 20px;">
     <h2 style="font-family:'Outfit'; font-size:30px; margin-bottom:15px;">DON'T JUST SEND MONEY. <br> SECURE THE TRANSACTION.</h2>
-    <p style="color:#888; max-width:500px; margin:0 auto 40px; line-height:1.7;">Global TrustID is an elite decentralized authority built to restore integrity to digital trade. Our mission is to blacklist fraud.</p>
+    <p style="color:#888; max-width:500px; margin:0 auto 40px; line-height:1.7;">Global TrustID is an elite decentralized authority built to restore integrity to digital trade.</p>
     
     <button class="btn-get-access" onclick="openModal('accessModal')">>> GET ACCESS</button>
-    
-    <div style="margin-top:50px;">
-        <p style="color:var(--gold); font-weight:700;">Have you been scammed or ever been scammed?</p>
-        <button class="nav-btn" style="border-color:var(--red); color:var(--red); padding:15px 30px;" onclick="openModal('reportModal')">REPORT SCAMMER HERE</button>
-    </div>
 </div>
 
 <div style="text-align:center;">
-    <button class="nav-btn why-btn" style="border-color:var(--gold); color:var(--gold); font-weight:900;">WHY TRUSTID?</button>
+    <button class="why-btn">WHY TRUSTID?</button>
 </div>
 
-<div style="padding:40px 20px; display:grid; gap:20px;">
-    <div style="background:#0a0a0a; padding:30px; border-radius:20px; border:1.5px solid var(--green); text-align:center;">
-        <i class="fas fa-shield-check" style="color:var(--green); font-size:40px;"></i>
+<div class="features">
+    <div class="f-card" style="border-color:var(--green); background: rgba(0, 255, 136, 0.02);">
+        <i class="fas fa-shield-check" style="color:var(--green)"></i>
         <h3 style="color:var(--green)">Insurance Protection</h3>
-        <p style="color:#666;">Transactions with Green-Badge vendors are insured.</p>
+        <p style="color:#666;">Transactions with Green-Badge vendors (80-100 score) are insured.</p>
     </div>
+
+    <div class="f-card">
+        <i class="fas fa-id-card"></i>
+        <h3>Verified Identity</h3>
+        <p style="color:#666;">Full NIN and biometric verification for all elite vendors.</p>
     </div>
+
+    <div class="f-card">
+        <i class="fas fa-vault"></i>
+        <h3>Escrow Protection</h3>
+        <p style="color:#666;">We hold the funds. They are only released when you confirm receipt.</p>
+    </div>
+
+    <div class="f-card">
+        <i class="fas fa-user-slash"></i>
+        <h3>Instant Blacklist</h3>
+        <p style="color:#666;">One fraud attempt leads to a permanent global ban on our network.</p>
+    </div>
+</div>
+
+<div style="text-align:center; padding:40px 20px;">
+    <p style="color:var(--gold); font-weight:700;">Have you been scammed or ever been scammed?</p>
+    <button class="nav-btn" style="border-color:var(--red); color:var(--red); padding:15px 30px;" onclick="openModal('reportModal')">REPORT SCAMMER HERE</button>
+</div>
 
 <div id="reportModal" class="modal">
     <div class="modal-content">
         <h2 style="color:var(--red); font-family:'Outfit';">Report Scammer</h2>
         <form id="reportForm">
             <input type="text" name="scammer_name" placeholder="Scammer Name/Handle" required>
-            <input type="text" name="account_details" placeholder="Bank Account Used" required>
-            <textarea name="description" placeholder="Describe the scam incident..." rows="4" required></textarea>
-            <p style="font-size:11px; color:#555;">Upload Evidence (Select Multiple Screenshots):</p>
+            <input type="text" name="account_details" placeholder="Bank Account Details" required>
+            <textarea name="description" placeholder="How did it happen?" rows="4" required></textarea>
+            <p style="font-size:11px; color:#555;">Upload Multiple Evidence Screenshots:</p>
             <input type="file" multiple id="evidence" accept="image/*">
             <button type="submit" class="btn-get-access" style="width:100%; font-size:14px; padding:12px;">SUBMIT EVIDENCE</button>
             <button type="button" onclick="closeModal('reportModal')" style="background:none; border:none; color:#555; width:100%; margin-top:15px; cursor:pointer;">Close</button>
@@ -147,17 +158,16 @@
 
 <div id="accessModal" class="modal">
     <div class="modal-content">
-        <h2 style="color:var(--cyan); font-family:'Outfit';">Get Early Access</h2>
+        <h2 style="color:var(--cyan);">Get Early Access</h2>
         <form id="accessForm">
-            <input type="email" name="email" placeholder="Your Email Address" required>
-            <input type="text" name="phone" placeholder="Phone Number" required>
+            <input type="email" name="email" placeholder="Email Address" required>
             <button type="submit" class="btn-get-access" style="width:100%; font-size:14px; padding:12px;">GET ACCESS NOW</button>
             <button type="button" onclick="closeModal('accessModal')" style="background:none; border:none; color:#555; width:100%; margin-top:15px; cursor:pointer;">Close</button>
         </form>
     </div>
 </div>
 
-<footer style="text-align:center; padding:40px; color:#555; font-size:10px; letter-spacing:3px; font-weight:800;">
+<footer style="text-align:center; padding:60px 40px; color:#555; font-size:10px; letter-spacing:3px; font-weight:800;">
     © 2026 TRUSTID INFRASTRUCTURE. ALL RIGHTS RESERVED.
 </footer>
 
@@ -166,21 +176,19 @@
     function openModal(id) { document.getElementById(id).style.display = "flex"; }
     function closeModal(id) { document.getElementById(id).style.display = "none"; }
 
-    const verifiedList = ["9876543210", "AMANA STORES", "TRUSTID_OFFICIAL"];
-
     function checkVendor() {
         const val = document.getElementById('searchInput').value.trim().toUpperCase();
         const res = document.getElementById('result-box');
         if(!val) return;
         res.style.display = "block";
-        if(verifiedList.includes(val)) {
+        if(val === "SCAMMER") {
+            res.innerHTML = "🚫 SCAMMER DETECTED";
+            res.style.border = "2px solid var(--red)"; res.style.color = "var(--red)";
+            res.style.background = "rgba(255, 59, 59, 0.05)";
+        } else {
             res.innerHTML = "⭐ VERIFIED ELITE VENDOR";
             res.style.border = "2px solid var(--green)"; res.style.color = "var(--green)";
             res.style.background = "rgba(0, 255, 136, 0.05)";
-        } else {
-            res.innerHTML = "⚠️ UNVERIFIED / HIGH RISK";
-            res.style.border = "2px solid var(--red)"; res.style.color = "var(--red)";
-            res.style.background = "rgba(255, 59, 59, 0.05)";
         }
     }
 
@@ -192,21 +200,12 @@
         });
     }
 
-    document.getElementById('accessForm').onsubmit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const data = Object.fromEntries(formData.entries());
-        await sendToSheet({...data, timestamp: new Date().toLocaleString(), type: 'Access Request'});
-        alert("Success! Your access request has been sent.");
-        closeModal('accessModal');
-    };
-
     document.getElementById('reportForm').onsubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
-        await sendToSheet({...data, timestamp: new Date().toLocaleString(), type: 'Scam Report'});
-        alert("Report Received. Our security team will review the evidence.");
+        await sendToSheet({...data, timestamp: new Date().toLocaleString()});
+        alert("Report Submitted Successfully!");
         closeModal('reportModal');
     };
 </script>
