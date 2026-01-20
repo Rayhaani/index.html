@@ -13,54 +13,57 @@
         
         body { background: var(--dark); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; }
 
-        /* Blinking Header Buttons */
-        nav { display: flex; justify-content: center; gap: 15px; padding: 20px; background: rgba(0,0,0,0.9); sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
+        /* Navigation Layout Fix */
+        nav { display: flex; justify-content: center; align-items: center; gap: 12px; padding: 25px 15px; background: rgba(0,0,0,0.95); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
         .nav-btn { 
             background: transparent; border: 1.5px solid var(--cyan); color: var(--cyan); 
-            padding: 8px 15px; border-radius: 50px; font-weight: 800; font-size: 11px;
+            padding: 8px 14px; border-radius: 50px; font-weight: 800; font-size: 10px;
             text-decoration: none; text-transform: uppercase; animation: blinkCyan 2s infinite;
         }
-        @keyframes blinkCyan { 0%, 100% { opacity: 1; box-shadow: 0 0 5px var(--cyan); } 50% { opacity: 0.5; box-shadow: 0 0 20px var(--cyan); } }
+        @keyframes blinkCyan { 0%, 100% { box-shadow: 0 0 5px var(--cyan); } 50% { box-shadow: 0 0 15px var(--cyan); } }
 
-        /* Global Sidebar Menu Icon */
-        .menu-icon { position: absolute; right: 20px; top: 25px; color: #fff; font-size: 24px; cursor: pointer; }
+        /* Menu Icon Positioning Fix */
+        .menu-icon { margin-left: 10px; color: #fff; font-size: 22px; cursor: pointer; }
+
+        /* Sidebar */
         .sidebar { position: fixed; left: -100%; top: 0; width: 280px; height: 100%; background: #080808; z-index: 3000; transition: 0.4s; padding: 40px 20px; border-right: 1px solid #222; }
         .sidebar.active { left: 0; }
         .sidebar a { display: block; color: #fff; text-decoration: none; padding: 15px 0; font-size: 18px; font-weight: 700; border-bottom: 1px solid #111; }
 
-        /* Blinking Logo */
+        /* Header UI */
         header { text-align: center; padding: 40px 20px; }
-        .logo-shield { font-size: 70px; color: var(--cyan); animation: pulseShield 2s infinite; }
-        @keyframes pulseShield { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--cyan)); } 50% { transform: scale(1.1); filter: drop-shadow(0 0 30px var(--cyan)); } }
-        .brand-name { font-family: 'Outfit'; font-size: 45px; font-weight: 900; background: linear-gradient(to right, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo-shield { font-size: 75px; color: var(--cyan); animation: pulseShield 2s infinite; display: block; margin: 0 auto; }
+        @keyframes pulseShield { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--cyan)); } 50% { transform: scale(1.08); filter: drop-shadow(0 0 25px var(--cyan)); } }
+        
+        /* New Font for TrustID */
+        .brand-name { font-family: 'Outfit'; font-size: 52px; font-weight: 900; letter-spacing: -1px; background: linear-gradient(to right, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 10px 0; }
+        .slogan { color: var(--red); font-weight: 800; letter-spacing: 1px; font-size: 13px; text-transform: uppercase; }
 
-        /* Search & Results */
+        /* Search & Result Box Fix */
         .search-area { text-align: center; padding: 20px; }
-        .search-input { width: 85%; max-width: 400px; padding: 18px; border-radius: 50px; border: 1px solid #222; background: #050505; color: #fff; text-align: center; }
-        #result-box { margin: 20px auto; padding: 12px; border-radius: 8px; max-width: 300px; display: none; font-weight: 800; font-family: 'Outfit'; font-size: 14px; }
+        .search-input { width: 85%; max-width: 380px; padding: 18px; border-radius: 50px; border: 1px solid #222; background: #050505; color: #fff; text-align: center; font-size: 14px; }
+        #result-box { margin: 15px auto; padding: 10px; border-radius: 8px; width: 85%; max-width: 320px; display: none; font-weight: 800; font-family: 'Outfit'; font-size: 13px; text-align: center; }
 
-        /* Sliding Images */
-        .slider { width: 100%; height: 350px; position: relative; overflow: hidden; border-top: 3px solid var(--red); }
+        /* Get Access Button */
+        .btn-get-access { 
+            background: #d00000; color: #fff; padding: 16px 45px; border-radius: 50px; 
+            font-weight: 900; font-size: 18px; border: 4px solid #900000; cursor: pointer;
+            text-transform: uppercase; animation: blinkRed 1.5s infinite;
+        }
+        @keyframes blinkRed { 0%, 100% { box-shadow: 0 0 10px #d00000; } 50% { box-shadow: 0 0 30px #ff0000; } }
+
+        /* Why TrustID Enlarged */
+        .why-btn { font-size: 18px !important; padding: 15px 40px !important; margin-top: 20px; }
+
+        /* Slider */
+        .slider { width: 100%; height: 350px; position: relative; overflow: hidden; border-top: 3px solid var(--red); margin-top: 30px; }
         .slide { position: absolute; width: 100%; height: 100%; opacity: 0; animation: fade 12s infinite; }
         .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.3); }
         @keyframes fade { 0%, 33% { opacity: 0; } 5%, 28% { opacity: 1; } }
         .slide:nth-child(2) { animation-delay: 4s; } .slide:nth-child(3) { animation-delay: 8s; }
 
-        /* Get Access Button (Exact Match to Image) */
-        .btn-get-access { 
-            background: #d00000; color: #fff; padding: 15px 40px; border-radius: 50px; 
-            font-weight: 900; font-size: 18px; border: 4px solid #900000; cursor: pointer;
-            text-transform: uppercase; display: inline-block; animation: blinkRed 1.5s infinite;
-        }
-        @keyframes blinkRed { 0%, 100% { box-shadow: 0 0 10px #d00000; transform: scale(1); } 50% { box-shadow: 0 0 30px #ff0000; transform: scale(1.05); } }
-
-        /* Feature Cards */
-        .features { padding: 40px 20px; display: grid; gap: 20px; }
-        .f-card { background: #0a0a0a; padding: 30px; border-radius: 20px; border: 1px solid #1a1a1a; text-align: center; }
-        .f-card i { font-size: 40px; color: var(--cyan); margin-bottom: 15px; }
-
-        /* Modal Form */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 5000; padding: 20px; box-sizing: border-box; overflow-y: auto; }
+        /* Modal */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 5000; padding: 20px; box-sizing: border-box; overflow-y: auto; align-items: center; }
         .modal-content { background: #080808; padding: 30px; border-radius: 20px; max-width: 450px; margin: auto; border: 1px solid #333; }
         input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; background: #000; border: 1px solid #222; color: #fff; border-radius: 10px; box-sizing: border-box; }
     </style>
@@ -68,8 +71,8 @@
 <body>
 
 <div class="sidebar" id="sidebar">
-    <i class="fas fa-times" onclick="toggleSidebar()" style="float:right; cursor:pointer;"></i>
-    <div style="margin-top:50px;">
+    <i class="fas fa-times" onclick="toggleSidebar()" style="float:right; cursor:pointer; font-size:20px;"></i>
+    <div style="margin-top:60px;">
         <a href="#">About Us</a>
         <a href="#">Sign Up</a>
         <a href="#">Contact Us</a>
@@ -80,20 +83,20 @@
 <nav>
     <a href="#" class="nav-btn">Directory</a>
     <a href="#" class="nav-btn" style="border-color:var(--gold); color:var(--gold);">Verify Me</a>
-    <a href="#" class="nav-btn" style="border-color:var(--red); color:var(--red);">Report Scam</a>
+    <a href="javascript:void(0)" class="nav-btn" style="border-color:var(--red); color:var(--red);" onclick="openModal('reportModal')">Report Scam</a>
     <i class="fas fa-bars menu-icon" onclick="toggleSidebar()"></i>
 </nav>
 
 <header>
     <i class="fas fa-shield-halved logo-shield"></i>
     <h1 class="brand-name">TrustID</h1>
-    <p style="color:var(--red); font-weight:900; letter-spacing:4px; font-size:12px;">ZERO TOLERANCE POLICY</p>
+    <p class="slogan">Your Digital Shield Against Digital Fraud</p>
 </header>
 
 <div class="search-area">
     <input type="text" id="searchInput" class="search-input" placeholder="Enter Full Name or Account No">
     <br><br>
-    <button class="nav-btn" style="padding:15px 40px; font-size:14px;" onclick="checkVendor()">Verify Identity</button>
+    <button class="nav-btn" style="padding:15px 40px; font-size:14px; border-width:2px;" onclick="checkVendor()">Verify Identity</button>
     <div id="result-box"></div>
 </div>
 
@@ -115,47 +118,46 @@
     </div>
 </div>
 
-<div style="text-align:center;"><button class="nav-btn" style="border-color:var(--gold); color:var(--gold);">WHY TRUSTID?</button></div>
+<div style="text-align:center;">
+    <button class="nav-btn why-btn" style="border-color:var(--gold); color:var(--gold); font-weight:900;">WHY TRUSTID?</button>
+</div>
 
-<div class="features">
-    <div class="f-card" style="border-color:var(--green);">
-        <i class="fas fa-shield-check" style="color:var(--green);"></i>
-        <h3>Insurance Protection</h3>
+<div style="padding:40px 20px; display:grid; gap:20px;">
+    <div style="background:#0a0a0a; padding:30px; border-radius:20px; border:1.5px solid var(--green); text-align:center;">
+        <i class="fas fa-shield-check" style="color:var(--green); font-size:40px;"></i>
+        <h3 style="color:var(--green)">Insurance Protection</h3>
         <p style="color:#666;">Transactions with Green-Badge vendors are insured.</p>
     </div>
-    <div class="f-card"><i class="fas fa-id-card"></i><h3>Verified Identity</h3><p style="color:#666;">Biometric and NIN verification for vendors.</p></div>
-    <div class="f-card"><i class="fas fa-vault"></i><h3>Escrow Protection</h3><p style="color:#666;">Funds released only after receipt of goods.</p></div>
-    <div class="f-card"><i class="fas fa-user-slash"></i><h3>Instant Blacklist</h3><p style="color:#666;">One fraud attempt leads to a lifetime ban.</p></div>
-</div>
+    </div>
 
 <div id="reportModal" class="modal">
     <div class="modal-content">
-        <h2 style="color:var(--red);">Report Scammer</h2>
+        <h2 style="color:var(--red); font-family:'Outfit';">Report Scammer</h2>
         <form id="reportForm">
             <input type="text" name="scammer_name" placeholder="Scammer Name/Handle" required>
             <input type="text" name="account_details" placeholder="Bank Account Used" required>
-            <textarea name="description" placeholder="Describe the scam..." rows="4" required></textarea>
-            <p style="font-size:11px; color:#555;">Select Multiple Screenshots:</p>
+            <textarea name="description" placeholder="Describe the scam incident..." rows="4" required></textarea>
+            <p style="font-size:11px; color:#555;">Upload Evidence (Select Multiple Screenshots):</p>
             <input type="file" multiple id="evidence" accept="image/*">
-            <button type="submit" class="btn-get-access" style="width:100%; font-size:14px;">SUBMIT EVIDENCE</button>
-            <button type="button" onclick="closeModal('reportModal')" style="background:none; border:none; color:#555; width:100%; margin-top:15px;">Close</button>
+            <button type="submit" class="btn-get-access" style="width:100%; font-size:14px; padding:12px;">SUBMIT EVIDENCE</button>
+            <button type="button" onclick="closeModal('reportModal')" style="background:none; border:none; color:#555; width:100%; margin-top:15px; cursor:pointer;">Close</button>
         </form>
     </div>
 </div>
 
 <div id="accessModal" class="modal">
     <div class="modal-content">
-        <h2 style="color:var(--cyan);">Get Early Access</h2>
+        <h2 style="color:var(--cyan); font-family:'Outfit';">Get Early Access</h2>
         <form id="accessForm">
             <input type="email" name="email" placeholder="Your Email Address" required>
             <input type="text" name="phone" placeholder="Phone Number" required>
-            <button type="submit" class="btn-get-access" style="width:100%; font-size:14px;">GET ACCESS NOW</button>
-            <button type="button" onclick="closeModal('accessModal')" style="background:none; border:none; color:#555; width:100%; margin-top:15px;">Close</button>
+            <button type="submit" class="btn-get-access" style="width:100%; font-size:14px; padding:12px;">GET ACCESS NOW</button>
+            <button type="button" onclick="closeModal('accessModal')" style="background:none; border:none; color:#555; width:100%; margin-top:15px; cursor:pointer;">Close</button>
         </form>
     </div>
 </div>
 
-<footer style="text-align:center; padding:40px; color:#333; font-size:10px; letter-spacing:3px;">
+<footer style="text-align:center; padding:40px; color:#555; font-size:10px; letter-spacing:3px; font-weight:800;">
     © 2026 TRUSTID INFRASTRUCTURE. ALL RIGHTS RESERVED.
 </footer>
 
@@ -174,13 +176,14 @@
         if(verifiedList.includes(val)) {
             res.innerHTML = "⭐ VERIFIED ELITE VENDOR";
             res.style.border = "2px solid var(--green)"; res.style.color = "var(--green)";
+            res.style.background = "rgba(0, 255, 136, 0.05)";
         } else {
             res.innerHTML = "⚠️ UNVERIFIED / HIGH RISK";
             res.style.border = "2px solid var(--red)"; res.style.color = "var(--red)";
+            res.style.background = "rgba(255, 59, 59, 0.05)";
         }
     }
 
-    // Google Sheet Integration (SheetDB)
     async function sendToSheet(data) {
         return fetch("https://sheetdb.io/api/v1/l4489wvcfc6dd", {
             method: 'POST',
@@ -193,8 +196,8 @@
         e.preventDefault();
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
-        await sendToSheet({...data, type: 'Early Access'});
-        alert("Success! You're on the list.");
+        await sendToSheet({...data, timestamp: new Date().toLocaleString(), type: 'Access Request'});
+        alert("Success! Your access request has been sent.");
         closeModal('accessModal');
     };
 
@@ -202,11 +205,10 @@
         e.preventDefault();
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
-        await sendToSheet({...data, type: 'Scam Report'});
-        alert("Evidence Submitted to Security Intelligence.");
+        await sendToSheet({...data, timestamp: new Date().toLocaleString(), type: 'Scam Report'});
+        alert("Report Received. Our security team will review the evidence.");
         closeModal('reportModal');
     };
 </script>
 </body>
-    </html>
-    
+</html>
