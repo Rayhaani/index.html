@@ -14,166 +14,156 @@
         
         body { background: var(--dark); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; }
 
-        /* Modern Glass Header */
-        nav { 
-            display: flex; justify-content: space-between; align-items: center; 
-            padding: 15px 5%; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); 
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--glass);
-        }
-        .nav-links a { 
-            color: #888; text-decoration: none; margin-left: 20px; font-weight: 700; 
-            font-size: 12px; text-transform: uppercase; transition: 0.3s;
-        }
-        .nav-links a:hover, .nav-links a.active { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
+        /* Custom Slide Menu (About Us) */
+        .side-menu { position: fixed; right: -300px; top: 0; width: 300px; height: 100%; background: #080808; z-index: 2000; transition: 0.5s ease; padding: 50px 20px; border-left: 1px solid var(--cyan); }
+        .side-menu.active { right: 0; }
+        .menu-trigger { cursor: pointer; color: var(--cyan); font-size: 25px; padding: 20px; position: absolute; right: 0; z-index: 2100; }
 
-        header { text-align: center; padding: 40px 20px; }
-        .brand-name { font-family: 'Outfit'; font-size: 50px; font-weight: 900; background: linear-gradient(135deg, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        /* Search Box & Result */
-        .section-box { text-align: center; padding: 20px; }
-        .search-bar { 
-            width: 85%; max-width: 450px; padding: 18px; border-radius: 50px; 
-            border: 1px solid #222; background: #080808; color: #fff; font-size: 15px; text-align: center;
-        }
-        
-        /* Elegant Result Boxes */
-        #result-box { 
-            margin: 25px auto; padding: 15px 25px; border-radius: 12px; display: none; 
-            max-width: 380px; font-weight: 600; font-size: 15px; font-family: 'Outfit';
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+        /* Header & Blinking Logo */
+        header { text-align: center; padding: 60px 20px 20px; }
+        .logo-box i { font-size: 80px; color: var(--cyan); animation: logoBlink 2s infinite ease-in-out; }
+        @keyframes logoBlink { 0%, 100% { filter: drop-shadow(0 0 10px var(--cyan)); opacity: 1; } 50% { filter: drop-shadow(0 0 35px var(--cyan)); opacity: 0.7; transform: scale(1.05); } }
+        .brand-name { font-family: 'Outfit'; font-size: 55px; margin: 10px 0; font-weight: 900; background: linear-gradient(135deg, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* Verify Me Now Button - Lightning Pulse */
-        .verify-now-btn {
-            background: linear-gradient(45deg, var(--cyan), #4facfe);
-            color: #000; border: none; padding: 15px 35px; border-radius: 50px;
-            font-weight: 900; font-size: 14px; cursor: pointer; text-transform: uppercase;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
-            animation: lightning 1.5s infinite; margin-top: 20px;
-        }
-        @keyframes lightning {
-            0% { box-shadow: 0 0 5px var(--cyan); transform: scale(1); }
-            50% { box-shadow: 0 0 40px var(--cyan); transform: scale(1.05); }
-            100% { box-shadow: 0 0 5px var(--cyan); transform: scale(1); }
-        }
+        /* Search Section */
+        .section-box { text-align: center; padding: 40px 20px; }
+        .search-bar { width: 90%; max-width: 480px; padding: 22px; border-radius: 50px; border: 1px solid #222; background: #050505; color: #fff; font-size: 16px; text-align: center; }
+        .verify-now-btn { background: var(--cyan); color: #000; border: none; padding: 18px 50px; border-radius: 50px; font-weight: 900; cursor: pointer; text-transform: uppercase; animation: lightning 1.5s infinite; margin-top: 25px; }
+        @keyframes lightning { 0%, 100% { box-shadow: 0 0 10px var(--cyan); } 50% { box-shadow: 0 0 40px var(--cyan); } }
 
-        /* Why TrustID Button - Extraordinary Colors */
-        .why-btn {
-            background: linear-gradient(90deg, #ffd700, #ffffff, #b9f2ff, #ffd700);
-            background-size: 300% auto; padding: 10px 25px; border-radius: 8px;
-            color: #000; font-weight: 900; font-size: 13px; border: none;
-            animation: flow 3s linear infinite; display: inline-block; margin-bottom: 30px;
-        }
+        /* Search Result (Passionate UI) */
+        #result-box { margin: 25px auto; padding: 12px 20px; border-radius: 10px; display: none; max-width: 320px; font-weight: 700; font-size: 14px; font-family: 'Outfit'; text-align: center; }
+
+        /* Slider Section (Fading Effect) */
+        .slider-box { position: relative; width: 100%; height: 400px; margin-top: 40px; border-top: 3px solid var(--red); overflow: hidden; }
+        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; animation: fadeEffect 12s infinite; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.3); }
+        @keyframes fadeEffect { 0%, 33% { opacity: 0; } 5%, 28% { opacity: 1; } }
+        .slide:nth-child(1) { animation-delay: 0s; } .slide:nth-child(2) { animation-delay: 4s; } .slide:nth-child(3) { animation-delay: 8s; }
+        .caption { position: absolute; bottom: 40px; width: 100%; text-align: center; padding: 0 30px; font-size: 18px; font-weight: 600; text-shadow: 0 2px 10px #000; }
+
+        /* Call to Action Area */
+        .cta-area { padding: 80px 25px; text-align: center; }
+        .command-text { font-family: 'Outfit'; font-size: 32px; font-weight: 900; line-height: 1.2; margin-bottom: 25px; }
+        .mission-text { font-size: 16px; color: #888; max-width: 600px; margin: 0 auto; line-height: 1.8; }
+
+        /* Why TrustID Button (Extraordinary) */
+        .why-btn { background: linear-gradient(90deg, #ffd700, #fff, #00f2fe, #ffd700); background-size: 300% auto; padding: 12px 30px; border-radius: 50px; color: #000; font-weight: 900; border: none; animation: flow 3s linear infinite; margin-bottom: 30px; }
         @keyframes flow { to { background-position: 300% center; } }
 
-        /* About Us Section */
-        .about-section { padding: 60px 10%; text-align: center; background: #050505; border-top: 1px solid var(--glass); }
-        .about-section h2 { font-family: 'Outfit'; color: var(--cyan); }
-        .about-section p { color: #888; line-height: 1.8; font-size: 15px; }
+        /* Features Grid */
+        .features-grid { padding: 0 5% 80px; display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .feat-card { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 35px; border-radius: 25px; text-align: center; }
+        .feat-card i { font-size: 45px; color: var(--cyan); margin-bottom: 20px; }
+        .insurance-card { border: 1.5px solid var(--green); background: rgba(0,255,136,0.02); }
 
-        /* Feature Cards */
-        .features-grid { padding: 20px 5% 60px; display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .feat-card { 
-            background: var(--glass); border: 1px solid #1a1a1a; padding: 30px; 
-            border-radius: 20px; text-align: center;
-        }
-        .feat-card i { font-size: 40px; color: var(--cyan); margin-bottom: 15px; }
+        /* Report Section */
+        .report-section { margin-top: 50px; }
+        .report-btn { background: transparent; border: 2px solid var(--red); color: var(--red); padding: 18px 40px; border-radius: 12px; font-weight: 900; cursor: pointer; }
 
-        /* Insurance Box - Special */
-        .insurance-card {
-            border: 2px solid var(--green); background: rgba(0, 255, 136, 0.05);
-        }
-
-        footer { padding: 40px; text-align: center; border-top: 1px solid var(--glass); }
-        .footer-text { font-size: 12px; color: #aaa; letter-spacing: 2px; font-weight: 700; }
-
+        footer { padding: 40px; text-align: center; border-top: 1px solid #111; }
+        .footer-text { font-size: 12px; color: #ffffff; letter-spacing: 2px; font-weight: 800; opacity: 0.9; }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo-nav">TrustID</div>
-    <div class="nav-links">
-        <a href="#">Directory</a>
-        <a href="#" class="active">Verify Me</a>
-        <a href="#">Report Scam</a>
-    </div>
-</nav>
+<div class="menu-trigger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+<div class="side-menu" id="sideMenu">
+    <h2 style="font-family:'Outfit'; color:var(--cyan);">About Us</h2>
+    <p style="color:#888; font-size:14px; line-height:1.7;">TrustID is the global infrastructure for secure commerce. We verify identities and blacklist scammers to create a sanctuary for legitimate trade worldwide.</p>
+    <hr style="border:0.5px solid #222; margin:30px 0;">
+    <a href="#" style="color:#fff; text-decoration:none; display:block; margin:10px 0;">Directory</a>
+    <a href="#" style="color:#fff; text-decoration:none; display:block; margin:10px 0;">Report Center</a>
+</div>
 
 <header>
+    <div class="logo-box"><i class="fas fa-shield-halved"></i></div>
     <div class="brand-name">TrustID</div>
-    <div style="font-size:10px; letter-spacing:4px; color:var(--red); font-weight:900;">ZERO TOLERANCE POLICY</div>
+    <div style="font-size:12px; color:var(--red); font-weight:900; letter-spacing:5px;">ZERO TOLERANCE POLICY</div>
 </header>
 
 <div class="section-box">
-    <button class="why-btn">WHY TRUSTID?</button>
-    <br>
     <input type="text" id="searchInput" class="search-bar" placeholder="Enter Name or Account Number...">
     <br>
     <button class="verify-now-btn" onclick="checkVendor()">Verify Identity Now</button>
     <div id="result-box"></div>
 </div>
 
-<div class="about-section">
-    <h2>About TrustID</h2>
-    <p>We are the global standard for digital trust. Our platform uses advanced verification infrastructure to ensure every transaction you make is backed by transparency. We exist to protect the innocent and expose the fraudulent.</p>
+<div class="slider-box">
+    <div class="slide">
+        <img src="https://i.postimg.cc/w1rkcMbG/IMG-20260119-WA0093.jpg">
+        <div class="caption">"They stole everything in seconds without mercy."</div>
+    </div>
+    <div class="slide">
+        <img src="https://i.postimg.cc/bZ4QSMs2/IMG-20260119-WA0091.jpg">
+        <div class="caption">"₦159,000 house rent money is gone."</div>
+    </div>
+    <div class="slide">
+        <img src="https://i.postimg.cc/WdxMqKhZ/IMG-20260119-WA0096(1).jpg">
+        <div class="caption">"I trusted the profile because it looked real."</div>
+    </div>
+</div>
+
+<div class="cta-area">
+    <div class="command-text">DON'T JUST SEND MONEY. <br> SECURE THE TRANSACTION.</div>
+    <p class="mission-text"><b>Global TrustID</b> is an elite decentralized authority built to restore integrity to digital trade. Our mission is to <b>blacklist fraud</b>.</p>
+    
+    <div class="report-section">
+        <p style="color:#555; font-weight:700;">Have you been scammed or ever been scammed?</p>
+        <button class="report-btn">REPORT SCAMMER HERE</button>
+    </div>
+</div>
+
+<div style="text-align:center;">
+    <button class="why-btn">WHY TRUSTID?</button>
 </div>
 
 <div class="features-grid">
     <div class="feat-card insurance-card">
         <i class="fas fa-shield-check" style="color:var(--green)"></i>
         <h3 style="color:var(--green)">Insurance Protection</h3>
-        <p>Shop with peace of mind. Every transaction with a Green-Badge vendor (Score 80-100) is automatically insured by TrustID.</p>
+        <p style="color:#888;">Shop safe. Transactions with Green-Badge vendors are insured.</p>
     </div>
     <div class="feat-card">
-        <i class="fas fa-id-badge"></i>
+        <i class="fas fa-id-card"></i>
         <h3>Verified Identity</h3>
-        <p>Full biometric and NIN verification for all elite vendors on our platform.</p>
+        <p style="color:#888;">Biometric and NIN verification for all elite vendors.</p>
+    </div>
+    <div class="feat-card">
+        <i class="fas fa-vault"></i>
+        <h3>Escrow Protection</h3>
+        <p style="color:#888;">Funds are only released after goods are confirmed received.</p>
     </div>
     <div class="feat-card">
         <i class="fas fa-user-slash"></i>
         <h3>Instant Blacklist</h3>
-        <p>One verified fraud attempt leads to a lifetime global ban on our infrastructure.</p>
+        <p style="color:#888;">One fraud attempt leads to a lifetime global ban.</p>
     </div>
 </div>
 
 <footer>
-    <div class="footer-text">© 2026 GLOBAL TRUSTID INFRASTRUCTURE. ELITE PROTECTION SERVICES.</div>
+    <div class="footer-text">© 2026 GLOBAL TRUSTID INFRASTRUCTURE. ALL RIGHTS RESERVED.</div>
 </footer>
 
 <script>
-    async function checkVendor() {
+    function toggleMenu() { document.getElementById('sideMenu').classList.toggle('active'); }
+    function checkVendor() {
         const input = document.getElementById('searchInput').value.trim();
         const res = document.getElementById('result-box');
         if(!input) return;
-
         res.style.display = "block";
-        res.innerHTML = "Searching Infrastructure...";
-        res.style.border = "1px solid #333";
-        res.style.color = "#888";
-
-        // Logic din bincike (Template)
+        res.innerHTML = "SEARCHING INFRASTRUCTURE...";
         setTimeout(() => {
             if(input.toLowerCase() === "scammer") {
-                res.innerHTML = "🚫 SCAMMER DETECTED: AVOID THIS ACCOUNT";
-                res.style.background = "rgba(255, 59, 59, 0.1)";
-                res.style.color = "var(--red)";
-                res.style.border = "2px solid var(--red)";
+                res.innerHTML = "🚫 SCAMMER DETECTED";
+                res.style.border = "2px solid var(--red)"; res.style.color = "var(--red)";
             } else {
-                res.innerHTML = "⭐ ELITE VERIFIED: SCORE 98/100 (INSURED)";
-                res.style.background = "rgba(0, 255, 136, 0.1)";
-                res.style.color = "var(--green)";
-                res.style.border = "2px solid var(--green)";
+                res.innerHTML = "⭐ VERIFIED VENDOR";
+                res.style.border = "2px solid var(--green)"; res.style.color = "var(--green)";
             }
-        }, 1000);
-    }
-    
-    // Function na tura Report zuwa SheetDB
-    async function submitReport(formData) {
-        const apiURL = "https://sheetdb.io/api/v1/l4489wvcfc6dd";
-        // Wannan zai hada bayanan ya tura...
+        }, 1200);
     }
 </script>
-
 </body>
-</html>
+    </html>
+    
