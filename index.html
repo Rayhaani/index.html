@@ -10,7 +10,7 @@
         :root { --red: #ff3b3b; --cyan: #00f2fe; --dark: #000; --green: #00ff88; --gold: #ffd700; }
         body { background: var(--dark); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; }
 
-        /* Header Navigation - Fixed size to prevent breaking lines */
+        /* Header Navigation */
         nav { display: flex; justify-content: center; align-items: center; gap: 8px; padding: 20px 10px; background: rgba(0,0,0,0.95); position: sticky; top: 0; z-index: 1000; }
         .nav-btn { 
             background: transparent; border: 1.2px solid var(--cyan); color: var(--cyan); 
@@ -19,10 +19,13 @@
             white-space: nowrap;
         }
         @keyframes blinkCyan { 0%, 100% { box-shadow: 0 0 5px var(--cyan); } 50% { box-shadow: 0 0 12px var(--cyan); } }
-        .menu-icon { margin-left: 5px; color: #fff; font-size: 20px; cursor: pointer; }
+        .menu-icon { margin-left: 10px; color: #fff; font-size: 22px; cursor: pointer; }
 
-        /* Sparkling TrustID Logo */
+        /* Sparkling Shield & TrustID Logo */
         header { text-align: center; padding: 40px 20px 10px; }
+        .logo-shield { font-size: 80px; color: var(--cyan); animation: pulseShield 2s infinite; display: block; margin: 0 auto 15px; }
+        @keyframes pulseShield { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--cyan)); } 50% { transform: scale(1.1); filter: drop-shadow(0 0 30px var(--cyan)); } }
+        
         .brand-name { 
             font-family: 'Syne', sans-serif; font-size: 55px; font-weight: 900; 
             background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff00cc);
@@ -30,41 +33,44 @@
             animation: glitter 3s linear infinite; letter-spacing: -2px; margin: 0;
         }
         @keyframes glitter { to { background-position: 200% center; } }
-        .slogan { color: #888; font-weight: 700; font-size: 11px; margin-top: 5px; text-transform: uppercase; }
+        .slogan { color: var(--red); font-weight: 800; font-size: 11px; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Search result box fixed width */
+        /* Search Area */
         .search-area { text-align: center; padding: 20px; }
-        .search-input { width: 85%; max-width: 350px; padding: 18px; border-radius: 10px; border: 1px solid #222; background: #080808; color: #fff; text-align: center; }
-        #result-box { margin: 15px auto; padding: 10px; border-radius: 8px; width: 80%; max-width: 300px; display: none; font-weight: 800; font-family: 'Outfit'; font-size: 12px; }
+        .search-input { width: 85%; max-width: 380px; padding: 18px; border-radius: 12px; border: 1px solid #222; background: #080808; color: #fff; text-align: center; font-size: 15px; }
+        #result-box { margin: 15px auto; padding: 12px; border-radius: 8px; width: 85%; max-width: 320px; display: none; font-weight: 800; font-family: 'Outfit'; font-size: 13px; text-align: center; border: 2px solid transparent; }
 
-        /* Get Access Button */
+        /* Blinking Buttons */
         .btn-get-access { 
-            background: #e60000; color: #fff; padding: 15px 40px; border-radius: 50px; 
-            font-weight: 900; font-size: 18px; border: 3px solid #800000; cursor: pointer;
-            text-transform: uppercase; animation: blinkRed 1.5s infinite; margin: 20px 0;
+            background: #e60000; color: #fff; padding: 16px 45px; border-radius: 50px; 
+            font-weight: 900; font-size: 18px; border: 4px solid #800000; cursor: pointer;
+            text-transform: uppercase; animation: blinkRed 1.5s infinite; margin: 25px 0;
         }
-        @keyframes blinkRed { 0%, 100% { box-shadow: 0 0 10px #ff0000; } 50% { box-shadow: 0 0 25px #ff0000; } }
+        @keyframes blinkRed { 0%, 100% { box-shadow: 0 0 15px #ff0000; } 50% { box-shadow: 0 0 35px #ff0000; } }
 
         /* Features Section */
-        .features { padding: 20px 5% 40px; display: grid; gap: 15px; }
-        .f-card { background: #080808; padding: 25px; border-radius: 15px; border: 1px solid #1a1a1a; text-align: center; }
-        .f-card i { font-size: 35px; color: var(--cyan); margin-bottom: 15px; }
+        .features { padding: 20px 5% 40px; display: grid; gap: 20px; }
+        .f-card { background: #080808; padding: 30px; border-radius: 20px; border: 1px solid #1a1a1a; text-align: center; }
+        .f-card i { font-size: 40px; color: var(--cyan); margin-bottom: 20px; }
 
-        /* Sidebar - Reduced Font Size */
-        .sidebar { position: fixed; left: -100%; top: 0; width: 260px; height: 100%; background: #050505; z-index: 3000; transition: 0.4s; padding: 40px 20px; border-right: 1px solid #222; }
+        /* Sidebar */
+        .sidebar { position: fixed; left: -100%; top: 0; width: 270px; height: 100%; background: #050505; z-index: 3000; transition: 0.4s; padding: 40px 20px; border-right: 1px solid #222; }
         .sidebar.active { left: 0; }
-        .sidebar a { display: block; color: #fff; text-decoration: none; padding: 12px 0; font-size: 16px; font-weight: 600; border-bottom: 1px solid #111; }
+        .sidebar a { display: block; color: #fff; text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 700; border-bottom: 1px solid #111; }
 
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 5000; padding: 20px; align-items: center; }
-        .modal-content { background: #080808; padding: 30px; border-radius: 20px; max-width: 400px; margin: auto; border: 1px solid #333; }
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 12px; background: #000; border: 1px solid #222; color: #fff; border-radius: 10px; box-sizing: border-box; }
+        /* Modal */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 5000; padding: 20px; align-items: center; justify-content: center; }
+        .modal-content { background: #080808; padding: 35px; border-radius: 25px; max-width: 450px; width: 100%; border: 1px solid #333; }
+        input, textarea { width: 100%; padding: 16px; margin-bottom: 15px; background: #000; border: 1px solid #222; color: #fff; border-radius: 12px; box-sizing: border-box; }
+
+        footer { text-align: center; padding: 50px 20px; color: #555; font-size: 11px; letter-spacing: 2px; font-weight: 800; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
 
 <div class="sidebar" id="sidebar">
-    <i class="fas fa-times" onclick="toggleSidebar()" style="float:right; cursor:pointer; font-size:20px; color:var(--red);"></i>
-    <div style="margin-top:50px;">
+    <i class="fas fa-times" onclick="toggleSidebar()" style="float:right; cursor:pointer; font-size:22px; color:var(--red);"></i>
+    <div style="margin-top:60px;">
         <a href="#">About Us</a>
         <a href="#">Sign Up</a>
         <a href="#">Contact Us</a>
@@ -80,6 +86,7 @@
 </nav>
 
 <header>
+    <i class="fas fa-shield-halved logo-shield"></i>
     <h1 class="brand-name">TrustID</h1>
     <p class="slogan">Your Digital Shield Against Digital Fraud</p>
 </header>
@@ -87,44 +94,56 @@
 <div class="search-area">
     <input type="text" id="searchInput" class="search-input" placeholder="Enter Name or Account Number">
     <br><br>
-    <button class="nav-btn" style="padding:12px 30px; font-size:12px; border-width:2px;" onclick="checkVendor()">VERIFY IDENTITY</button>
+    <button class="nav-btn" style="padding:12px 35px; font-size:13px; border-width:2px;" onclick="checkVendor()">VERIFY IDENTITY</button>
     <div id="result-box"></div>
 </div>
 
-<div style="text-align:center; padding:30px 20px;">
-    <h2 style="font-family:'Outfit'; font-size:28px; font-weight:900;">DON'T JUST SEND MONEY. <br> SECURE THE TRANSACTION.</h2>
+<div style="text-align:center; padding:40px 20px;">
+    <h2 style="font-family:'Outfit'; font-size:32px; font-weight:900; line-height:1.2; margin-bottom:15px;">DON'T JUST SEND MONEY. <br> SECURE THE TRANSACTION.</h2>
+    <p id="missing-text" style="color:#777; max-width:550px; margin:0 auto 30px; line-height:1.8;">Global TrustID is an elite decentralized authority built to restore integrity to digital trade. Our mission is to blacklist fraud and provide a verified sanctuary for legitimate commerce worldwide.</p>
+    
     <button class="btn-get-access" onclick="openModal('accessModal')">>> GET ACCESS</button>
 </div>
 
-<div style="text-align:center; margin:20px 0;"><button class="nav-btn" style="border-color:var(--gold); color:var(--gold); font-size:16px; padding:12px 35px;">WHY TRUSTID?</button></div>
+<div style="text-align:center; margin-bottom:30px;">
+    <button class="nav-btn" style="border-color:var(--gold); color:var(--gold); font-size:18px; padding:15px 45px; border-radius:10px;">WHY TRUSTID?</button>
+</div>
 
 <div class="features">
-    <div class="f-card" style="border-color:var(--green);">
-        <i class="fas fa-shield-check" style="color:var(--green)"></i>
-        <h3>Insurance Protection</h3>
-        <p style="color:#555; font-size:13px;">Transactions with Green-Badge vendors are fully insured.</p>
-    </div>
-    <div class="f-card"><i class="fas fa-id-card-clip"></i><h3>Verified Identity</h3><p style="color:#555; font-size:13px;">NIN and biometric verification for all vendors.</p></div>
-    <div class="f-card"><i class="fas fa-vault"></i><h3>Escrow Protection</h3><p style="color:#555; font-size:13px;">Funds released only when goods are confirmed.</p></div>
-    <div class="f-card">
-        <i class="fas fa-user-slash"></i>
-        <h3>Instant Blacklist</h3>
-        <p style="color:#555; font-size:13px;">One fraud attempt leads to a permanent ban.</p>
-    </div>
+    <div class="f-card" style="border-color:var(--green);"><i class="fas fa-shield-check" style="color:var(--green)"></i><h3>Insurance Protection</h3><p style="color:#555;">Transactions with Green-Badge vendors are fully insured.</p></div>
+    <div class="f-card"><i class="fas fa-id-card-clip"></i><h3>Verified Identity</h3><p style="color:#555;">NIN and biometric verification for all elite vendors.</p></div>
+    <div class="f-card"><i class="fas fa-vault"></i><h3>Escrow Protection</h3><p style="color:#555;">Funds are released only when you confirm receipt of goods.</p></div>
+    <div class="f-card"><i class="fas fa-user-slash"></i><h3>Instant Blacklist</h3><p style="color:#555;">One fraud attempt leads to a permanent global ban.</p></div>
 </div>
 
-<div style="text-align:center; padding-bottom:50px;">
-    <p style="color:var(--gold); font-weight:800; font-size:13px;">HAVE YOU BEEN SCAMMED BEFORE?</p>
-    <button class="nav-btn" style="border-color:var(--red); color:var(--red); padding:15px 40px;" onclick="openModal('reportModal')">REPORT SCAMMER HERE</button>
+<div style="text-align:center; padding-bottom:60px;">
+    <p style="color:var(--gold); font-weight:800; font-size:14px; margin-bottom:15px;">HAVE YOU BEEN SCAMMED BEFORE?</p>
+    <button class="nav-btn" style="border-color:var(--red); color:var(--red); padding:18px 50px; font-size:12px;" onclick="openModal('reportModal')">REPORT SCAMMER HERE</button>
 </div>
+
+<footer>
+    @ 2026 TRUSTID INFRASTRUCTURE. GLOBAL SECURITY SHIELD. ALL RIGHTS RESERVED.
+</footer>
 
 <div id="reportModal" class="modal"><div class="modal-content">
-    <h2 style="color:var(--red);">Report Scammer</h2>
+    <h2 style="color:var(--red); font-family:'Outfit';">Report Scammer</h2>
     <form id="reportForm">
-        <input type="text" name="name" placeholder="Scammer Name" required>
-        <textarea name="details" placeholder="What happened?" required></textarea>
-        <button type="submit" class="btn-get-access" style="width:100%;">SUBMIT</button>
-        <button type="button" onclick="closeModal('reportModal')" style="background:none; border:none; color:#444; width:100%; margin-top:10px;">Close</button>
+        <input type="text" name="name" placeholder="Scammer Name/Handle" required>
+        <input type="text" name="bank" placeholder="Bank Details Used" required>
+        <textarea name="details" placeholder="How did it happen?" rows="4" required></textarea>
+        <p style="font-size:11px; color:#444;">Upload Evidence Screenshots:</p>
+        <input type="file" multiple id="evidence" accept="image/*">
+        <button type="submit" class="btn-get-access" style="width:100%; padding:15px;">SUBMIT REPORT</button>
+        <button type="button" onclick="closeModal('reportModal')" style="background:none; border:none; color:#555; width:100%; margin-top:15px; cursor:pointer;">Close</button>
+    </form>
+</div></div>
+
+<div id="accessModal" class="modal"><div class="modal-content">
+    <h2 style="color:var(--cyan); font-family:'Outfit';">Secure Early Access</h2>
+    <form id="accessForm">
+        <input type="email" name="email" placeholder="Your Email Address" required>
+        <button type="submit" class="btn-get-access" style="width:100%; padding:15px;">GET ACCESS</button>
+        <button type="button" onclick="closeModal('accessModal')" style="background:none; border:none; color:#555; width:100%; margin-top:15px; cursor:pointer;">Close</button>
     </form>
 </div></div>
 
@@ -133,22 +152,47 @@
     function openModal(id) { document.getElementById(id).style.display = "flex"; }
     function closeModal(id) { document.getElementById(id).style.display = "none"; }
 
-    // Correct Search Logic
-    const approved = ["AMANA", "TRUSTID", "9876543210"];
+    // Database check logic
+    const verified = ["AMANA", "TRUSTID", "RAYHAAN", "9876543210"];
+    const blacklisted = ["MUSA", "IBRAHIM", "SCAMMER", "0011223344"];
+
     function checkVendor() {
         const val = document.getElementById('searchInput').value.trim().toUpperCase();
         const res = document.getElementById('result-box');
         if(!val) return;
         res.style.display = "block";
-        if(approved.includes(val)) {
+
+        if(verified.includes(val)) {
             res.innerHTML = "⭐ ELITE VERIFIED VENDOR";
             res.style.border = "2px solid var(--green)"; res.style.color = "var(--green)";
-        } else {
-            res.innerHTML = "🚫 UNVERIFIED / HIGH RISK";
+            res.style.background = "rgba(0, 255, 136, 0.05)";
+        } else if(blacklisted.includes(val)) {
+            res.innerHTML = "🚫 BLACKLISTED SCAMMER";
             res.style.border = "2px solid var(--red)"; res.style.color = "var(--red)";
+            res.style.background = "rgba(255, 0, 0, 0.1)";
+        } else {
+            res.innerHTML = "⚠️ UNVERIFIED / HIGH RISK";
+            res.style.border = "2px solid var(--gold)"; res.style.color = "var(--gold)";
+            res.style.background = "rgba(255, 215, 0, 0.05)";
         }
     }
+
+    async function sendToSheet(data) {
+        return fetch("https://sheetdb.io/api/v1/l4489wvcfc6dd", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({data: [data]})
+        });
+    }
+
+    document.getElementById('reportForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData.entries());
+        await sendToSheet({...data, type: 'Report', date: new Date().toLocaleString()});
+        alert("Report Submitted to Security Team.");
+        closeModal('reportModal');
+    };
 </script>
 </body>
-                                        </html>
-                                        
+</html>
